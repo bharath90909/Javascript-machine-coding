@@ -1,0 +1,14 @@
+.loading {
+  display: none;
+}
+.loading.show {
+  display: block;
+}
+
+.content {
+  display: none;
+}
+
+.content.show {
+  display: block;
+}
