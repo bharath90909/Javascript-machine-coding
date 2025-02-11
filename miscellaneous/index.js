@@ -269,8 +269,9 @@ console.log("5" < "15" < "16"); // true
 //   function fun(j) {
 //     setTimeout(() => console.log(j), j * 1000);
 //   }
-//   fun(i);
+//   fun(i); 
 // }
+
 
 //concat method will not return anew array or new string
 
@@ -280,3 +281,15 @@ const arr3 = arr1.concat([3, 4], [5, 6], [7, 8], 9, 10);
 console.log(arr1); //[1,2]
 console.log(arr2); // [1,2,3,4]
 console.log(arr3); // [1,2,..,9,10]
+
+// copying one object properties to other object
+
+const source = {
+  name: "Bharath",
+  age: 21,
+};
+const target = {
+  name: "Kumar",
+};
+Object.assign(target, source);
+console.log(target); // {name:"Bharath",age:21}
