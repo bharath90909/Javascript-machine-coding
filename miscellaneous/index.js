@@ -269,9 +269,8 @@ console.log("5" < "15" < "16"); // true
 //   function fun(j) {
 //     setTimeout(() => console.log(j), j * 1000);
 //   }
-//   fun(i); 
+//   fun(i);
 // }
-
 
 //concat method will not return anew array or new string
 
@@ -284,12 +283,49 @@ console.log(arr3); // [1,2,..,9,10]
 
 // copying one object properties to other object
 
-const source = {
+// const source = {
+//   name: "Bharath",
+//   age: 21,
+// };
+// const target = {
+//   name: "Kumar",
+// };
+// Object.assign(target, source);
+// console.log(target);  {name:"Bharath",age:21}
+
+//Object.create() returns a new object by passing parentObject as proto type
+// const parent = {
+//   greet: function () {
+//     console.log(this.name);
+//   },
+// };
+
+// const child = Object.create(parent); // Object.create(proto)
+// child.name = "Bharath";
+// child.greet();
+
+const objectt = {
   name: "Bharath",
-  age: 21,
 };
-const target = {
-  name: "Kumar",
+Object.seal(objectt);
+//seal method dont allow adding or deleting existing properties
+//but can modify existing properties
+
+objectt.newName = "Bharath Kumar"; // cant add new prooperty
+
+console.log(objectt); // {name:"Bharath"}
+objectt.name = "Bharath Kumar";
+console.log(objectt); // {name:"Bharath Kumar"}
+
+function greet1(args) {
+  return `${args} ${this.name}`;
+}
+function greet2(...args) {
+  return `${args[0] + " " + args[1]} ${this.name}`;
+}
+const aObject = {
+  name: "Bharath",
 };
-Object.assign(target, source);
-console.log(target); // {name:"Bharath",age:21}
+
+console.log(greet1.call(aObject, "Hello"));
+console.log(greet2.apply(aObject, ["Hello", "Hai"]));
