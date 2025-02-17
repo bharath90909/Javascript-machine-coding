@@ -35,6 +35,8 @@ console.log([] == 0); //true coz [].toString()-->""-->false-->0
 console.log([0] == 0); //true coz [0].toString()-->"0"-->0(in this case)
 console.log([""] == 0); //true
 console.log([1] == 0); //false coz [1].toString()-->"1"-->1
+console.log([2] == 1); //false coz [2].toString()-->"2"-->1
+console.log([2] == true); //false coz [2].toString()-->"2"==true is false (coz coercion happens on only one side)
 console.log([] == ![]); // true here comp btw two arrays  so
 // (![])==> !true==>false and the []==>""==>false so finally false==false is true
 
@@ -329,3 +331,4 @@ const aObject = {
 
 console.log(greet1.call(aObject, "Hello"));
 console.log(greet2.apply(aObject, ["Hello", "Hai"]));
+
