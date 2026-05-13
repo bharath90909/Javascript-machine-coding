@@ -332,3 +332,22 @@ const aObject = {
 console.log(greet1.call(aObject, "Hello"));
 console.log(greet2.apply(aObject, ["Hello", "Hai"]));
 
+function fun(...args) {
+  console.log(args); /* [[
+  [1, {}, 3],
+  [4, 5, 6],
+]]]**/
+  return `${args}`;
+}
+
+const result10 = fun([
+  [1, {}, 3],
+  [4, 5, 6],
+]);
+console.log(typeof result10); //string
+//it doesn't matter how nested the array is eventually every element will be individullay converted to string using .toString() and all will gets added and result in a one common string
+console.log(result10); // 1,[object Object],3,4,5,6
+console.log([1, 2, 3].join()); // [1,2,3]
+console.log([1, 2, 3].join("")); // 1,2,3
+console.log("Hyderabad".split()); // ["Hyderabad"]
+console.log("Hyderabad".split("")); // ["H","y",....,"d"]
